@@ -5,7 +5,10 @@ using UnityEngine;
 public class PlayerContoller : MonoBehaviour
 {
     // Start is called before the first frame update
-    public float sens = 10f;
+    public float sens =0.5f;
+    public Transform camTransform;
+    
+    public float speed = 10f;
     void Start()
     {
         
@@ -14,6 +17,12 @@ public class PlayerContoller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0,-0.5f,0,Space.Self);
+        //mouse input stuff
+        camTransform.Rotate(-sens*(Input.GetAxis("Mouse Y")) , 0 , 0 , Space.Self);
+        transform.Rotate(0,sens*(Input.GetAxis("Mouse X")),0,Space.Self);
+        
+        //keyboard input stuff
+        transform.Translate(new Vector3(Input))
+
     }
 }
