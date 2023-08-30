@@ -199,8 +199,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c02ea32a238cce4e9014a9371e93f46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sens: 0.5
+  sens: 3
   camTransform: {fileID: 963194228}
+  rb: {fileID: 164705627}
+  speed: 10
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2213,7 +2215,7 @@ GameObject:
   - component: {fileID: 2052534382}
   m_Layer: 0
   m_Name: Plane
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
