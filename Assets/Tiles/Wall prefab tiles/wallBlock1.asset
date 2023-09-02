@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
-  m_Name: wallblock
+  m_Name: wallBlock1
   m_EditorClassIdentifier: 
-  m_DefaultSprite: {fileID: 21300000, guid: 9da0aa306bf0fb148b4d9b90422a18c8, type: 3}
-  m_DefaultGameObject: {fileID: 360639432146078062, guid: e9be04ea0d98eec4e9756710e89fdf93, type: 3}
-  m_DefaultColliderType: 1
+  m_DefaultSprite: {fileID: 21300000, guid: 0d858ec9c71f13d43822b3daea46ecd3, type: 3}
+  m_DefaultGameObject: {fileID: 4856653858151949539, guid: 30d46d4b91b7bac4c80d64cf10ecf4f8, type: 3}
+  m_DefaultColliderType: 0
   m_TilingRules: []

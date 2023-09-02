@@ -33,6 +33,25 @@ public class PlayerContoller : MonoBehaviour
         else{
             camAnimator.SetBool("isMoving",false);
         }
+
+        //shooting mech
+        if(Input.GetMouseButtonDown(0))
+        {
+            Debug.Log("mouse clicked");
+            if (Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out RaycastHit hit))
+            {   
+                Debug.DrawRay(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                Debug.Log("Did Hit");
+
+                Debug.Log(hit.collider.gameObject.name);
+            }
+            else
+            {
+                Debug.DrawRay(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+                Debug.Log("Did not Hit");
+            }
+        }
+
     }
 
 
