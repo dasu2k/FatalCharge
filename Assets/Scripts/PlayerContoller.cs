@@ -9,10 +9,13 @@ public class PlayerContoller : MonoBehaviour
     public Camera mainCam;
     public Animator camAnimator;
     public Rigidbody2D rb;
-    public float speed = 10f;
+    public float speed ;
+
+    public ParticleSystem bulletImpact;
     void Start()
     {
-        sens = 3f;
+        sens = 1f;
+        speed = 0.01f;
         rb = GetComponent<Rigidbody2D>();   
     }
 
@@ -42,8 +45,9 @@ public class PlayerContoller : MonoBehaviour
             {   
                 Debug.DrawRay(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 Debug.Log("Did Hit");
-
+                Instantiate(bulletImpact,hit.collider.gameObject.transform);
                 Debug.Log(hit.collider.gameObject.name);
+                bulletImpact.Play();
             }
             else
             {
@@ -51,8 +55,5 @@ public class PlayerContoller : MonoBehaviour
                 Debug.Log("Did not Hit");
             }
         }
-
     }
-
-
 }
