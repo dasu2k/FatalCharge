@@ -8,12 +8,14 @@ public class PlayerContoller : MonoBehaviour
     public float sens;
     public Camera mainCam;
     public Animator camAnimator;
+    public Animator canvasAnimator;
     public Rigidbody2D rb;
     public float speed ;
 
     public ParticleSystem bulletImpact;
     void Start()
     {
+        Cursor.lockState=CursorLockMode.Locked;
         sens = 1f;
         speed = 0.01f;
         rb = GetComponent<Rigidbody2D>();   
@@ -41,11 +43,15 @@ public class PlayerContoller : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             Debug.Log("mouse clicked");
+
+            canvasAnimator.SetBool("isShooting",true);
+
             if (Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out RaycastHit hit))
-            {   
+            {
                 Debug.DrawRay(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                 Debug.Log("Did Hit");
-                Instantiate(bulletImpact,hit.collider.gameObject.transform);
+
+                Destroy(Instantiate(bulletImpact,hit.point,transform.rotation),3);
                 Debug.Log(hit.collider.gameObject.name);
                 bulletImpact.Play();
             }
@@ -54,6 +60,9 @@ public class PlayerContoller : MonoBehaviour
                 Debug.DrawRay(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward) * 1000, Color.white);
                 Debug.Log("Did not Hit");
             }
+        }
+        else{
+            canvasAnimator.SetBool("isShooting",false);
         }
     }
 }
