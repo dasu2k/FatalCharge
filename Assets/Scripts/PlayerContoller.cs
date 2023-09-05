@@ -54,7 +54,13 @@ public class PlayerContoller : MonoBehaviour
                 Destroy(Instantiate(bulletImpact,hit.point,transform.rotation),3);
                 Debug.Log(hit.collider.gameObject.name);
                 bulletImpact.Play();
+
+
+                if(hit.collider.gameObject.tag == "Enemy")
+                    hit.collider.gameObject.GetComponent<EnemyController>().takeDamage();
             }
+
+
             else
             {
                 Debug.DrawRay(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward) * 1000, Color.white);
