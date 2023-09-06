@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerContoller : MonoBehaviour
@@ -8,9 +9,9 @@ public class PlayerContoller : MonoBehaviour
 
 
     public float sens;
-    public float speed ;
+    public float speed;
 
-
+    public static Transform player ;
     
     public Camera mainCam;
     public Animator camAnimator;
@@ -26,6 +27,7 @@ public class PlayerContoller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Time.timeScale = 1f;
         PauseMenuControl.isPaused = false;
+        player = transform;
     }
 
     // Update is called once per frame

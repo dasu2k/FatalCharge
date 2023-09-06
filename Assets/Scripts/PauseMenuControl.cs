@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class PauseMenuControl : MonoBehaviour
 {
-
+    
     public GameObject pauseMenu;
     public static bool isPaused = false;
     void Start(){
@@ -37,6 +37,5 @@ public class PauseMenuControl : MonoBehaviour
     public void goToMainMenu()
     {
         SceneManager.LoadScene("HomeScreen");
-        
     }
 }

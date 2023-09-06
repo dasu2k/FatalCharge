@@ -6,6 +6,7 @@ public class EnemyController : MonoBehaviour
 {
     private Camera cam;
     public int health;
+
     void Start()
     {
         cam = Camera.main;
@@ -17,11 +18,15 @@ public class EnemyController : MonoBehaviour
         transform.LookAt(cam.transform,-Vector3.forward);
     }
 
+    void Update(){
+        transform.position = Vector3.MoveTowards(transform.position , PlayerContoller.player.position, .004f);
+    }
+    
     public void takeDamage()
     {
-        if(health > 0)
-            health--;
-        else
+        health--;
+
+        if(health <= 0 )
         {
             Debug.Log("he ded");
             Destroy(gameObject);
