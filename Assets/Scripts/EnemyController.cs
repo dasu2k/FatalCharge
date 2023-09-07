@@ -6,8 +6,8 @@ public class EnemyController : MonoBehaviour
 {
     private Camera cam;
     public int health;
-
     public int damage;
+
     void Start()
     {
         cam = Camera.main;
@@ -39,8 +39,9 @@ public class EnemyController : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        PlayerContoller.takeDamage(damage);
-        
+        if(collision.gameObject.name == "playerCollider")
+            PlayerContoller.takeDamage(damage);
+        Debug.Log("hit "+ collision.gameObject.name);
     }
 }
 

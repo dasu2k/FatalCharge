@@ -31,8 +31,14 @@ public class PauseMenuControl : MonoBehaviour
 
     
     public void gameOver(){
-        pause();
+        //pausing game but without the pause menu
+        Time.timeScale = 0f;
+        isPaused = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        //to display the gameover text and the options after game over
         gameOverMenu.SetActive(true);
+
     }
 
     public void resume(){
@@ -41,6 +47,9 @@ public class PauseMenuControl : MonoBehaviour
         pauseMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
     }
+
+
+
     void  pause(){
         Time.timeScale = 0f;
         isPaused = true;
@@ -48,8 +57,10 @@ public class PauseMenuControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
+
     public void goToMainMenu()
     {
         SceneManager.LoadScene("HomeScreen");
     }
+
 }
