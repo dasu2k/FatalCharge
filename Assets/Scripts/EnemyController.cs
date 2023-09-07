@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour
     private Camera cam;
     public int health;
 
+    public int damage;
     void Start()
     {
         cam = Camera.main;
@@ -19,7 +20,10 @@ public class EnemyController : MonoBehaviour
     }
 
     void Update(){
-        transform.position = Vector3.MoveTowards(transform.position , PlayerContoller.player.position, .004f);
+        if(!PauseMenuControl.isPaused)
+        {
+            transform.position = Vector3.MoveTowards(transform.position , PlayerContoller.player.position, .004f);
+        }
     }
     
     public void takeDamage()
@@ -32,4 +36,11 @@ public class EnemyController : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        PlayerContoller.takeDamage(damage);
+        
+    }
 }
+
