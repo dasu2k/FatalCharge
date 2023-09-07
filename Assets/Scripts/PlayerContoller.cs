@@ -7,7 +7,7 @@ public class PlayerContoller : MonoBehaviour
 {
     // Start is called before the first frame update
 
-
+    public static PlayerContoller playerContoller ;
     public float sens;
     public float speed;
     public static int health;
@@ -17,12 +17,14 @@ public class PlayerContoller : MonoBehaviour
     public Camera mainCam;
     public Animator camAnimator;
     public Animator canvasAnimator;
-    public Rigidbody2D rb;
-
+    private Rigidbody2D rb;
 
 
     void Start()
     {
+
+        playerContoller = this;
+
         Cursor.lockState=CursorLockMode.Locked;
         rb = GetComponent<Rigidbody2D>();
         Time.timeScale = 1f;
@@ -30,6 +32,7 @@ public class PlayerContoller : MonoBehaviour
         player = transform;
         health = 10;
         collisionDetection = GameObject.Find("CollisionDetection");
+        
     }
 
     public static void takeDamage(int damage){
