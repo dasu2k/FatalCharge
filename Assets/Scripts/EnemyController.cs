@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     public int health;
     public int damage;
     public float range;
+    public float speed;
     public GameObject explosion;
     void Start()
     {
@@ -25,7 +26,7 @@ public class EnemyController : MonoBehaviour
         {
             //move the enemy towards the player if the player in range of the target
             if(Vector3.Distance(transform.position , PlayerContoller.player.position) < range)
-                transform.position = Vector3.MoveTowards(transform.position , PlayerContoller.player.position, .004f);
+                transform.position = Vector3.MoveTowards(transform.position , PlayerContoller.player.position, speed* Time.deltaTime);
         }
     }
     

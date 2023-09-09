@@ -56,7 +56,7 @@ public class PlayerContoller : MonoBehaviour
             //player movement
             if(input != Vector2.zero)
             {
-                transform.Translate(new Vector3(input.x * speed,0,input.y * speed) * Time.deltaTime);
+                transform.Translate(new Vector3(input.x ,0,input.y) * Time.deltaTime * speed);
                 camAnimator.SetBool("isMoving" , true);
             }
             else{
