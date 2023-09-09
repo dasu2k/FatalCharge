@@ -9,6 +9,6 @@ public class MainMenuControl : MonoBehaviour
         Time.timeScale = 1f;
     }
     public void onPlayClick(){
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("level1");
     }
 }

@@ -12,27 +12,25 @@ public class PlayerContoller : MonoBehaviour
     public float speed;
     public static int health;
 
+
+    public AudioSource gunshot;
     public static Transform player ;
-    public GameObject collisionDetection;
     public Camera mainCam;
     public Animator camAnimator;
     public Animator canvasAnimator;
     private Rigidbody2D rb;
 
-
     void Start()
     {
 
         playerContoller = this;
-
+        gunshot=GetComponent<AudioSource>();
         Cursor.lockState=CursorLockMode.Locked;
         rb = GetComponent<Rigidbody2D>();
         Time.timeScale = 1f;
         PauseMenuControl.isPaused = false;
         player = transform;
         health = 10;
-        collisionDetection = GameObject.Find("CollisionDetection");
-        
     }
 
     public static void takeDamage(int damage){
@@ -58,7 +56,7 @@ public class PlayerContoller : MonoBehaviour
             //player movement
             if(input != Vector2.zero)
             {
-                transform.Translate(new Vector3(input.x * speed,0,input.y * speed));
+                transform.Translate(new Vector3(input.x * speed,0,input.y * speed) * Time.deltaTime);
                 camAnimator.SetBool("isMoving" , true);
             }
             else{
@@ -67,7 +65,6 @@ public class PlayerContoller : MonoBehaviour
 
             //shooting mech
             shoot();
-
             
 
         }
@@ -81,6 +78,7 @@ public class PlayerContoller : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
             {
+                gunshot.Play();
                 //turn on shooting animation
                 canvasAnimator.SetBool("isShooting",true);
 
