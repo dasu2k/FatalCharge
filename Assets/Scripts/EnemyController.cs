@@ -9,7 +9,6 @@ public class EnemyController : MonoBehaviour
     public int damage;
     public float range;
     public float speed;
-    public GameObject explosion;
     public Animator animator;
 
     void Start()
@@ -37,10 +36,15 @@ public class EnemyController : MonoBehaviour
     {
         health--;
         //animator.SetBool("isHit",true);
+        animator.Play("GettingHit");
         if(health <= 0 )
         {
+            animator.Play("Dying");
+
+
+
+            
             Debug.Log("he ded");
-            Instantiate(explosion, transform.position , transform.rotation);
             Destroy(gameObject);
         }
     }
@@ -51,10 +55,11 @@ public class EnemyController : MonoBehaviour
         if(collision.gameObject.name == "playerCollider")
         {
             PlayerContoller.playerContoller.takeDamage(damage);
-            Instantiate(explosion,transform.position,transform.rotation);
             Destroy(gameObject);
         }    
         Debug.Log("hit "+ collision.gameObject.name);
     }
+
+    
 }
 
