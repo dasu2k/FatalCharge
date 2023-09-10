@@ -45,10 +45,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.9056097
+  m_Height: 1.9017494
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.011995792, y: 0, z: -0.000041365623}
 --- !u!114 &5194818862981843535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +62,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 3
-  damage: 0
-  range: 0
-  speed: 0
-  explosion: {fileID: 0}
+  damage: 4
+  range: 20
+  speed: 4
+  explosion: {fileID: 7016780530011474914, guid: 46a3627a786162f4ab8b66c23b8f169f, type: 3}
+  animator: {fileID: 3753514043358061221}
 --- !u!95 &3753514043358061221
 Animator:
   serializedVersion: 5

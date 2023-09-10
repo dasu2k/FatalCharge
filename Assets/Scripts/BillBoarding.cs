@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class BillBoarding : MonoBehaviour
 {
-    private Camera cam;
+    private GameObject player;
     void Start()
     {
-        cam = Camera.main;
+        player = Camera.main.transform.parent.gameObject;
     }
 
     void LateUpdate()
     {
-        //bill boarding
-        transform.LookAt(cam.transform,-Vector3.forward);
+        transform.LookAt(player.transform,-Vector3.forward);
     }
 }

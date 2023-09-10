@@ -25,6 +25,7 @@ public class PlayerContoller : MonoBehaviour
     public Camera mainCam;
     public Animator camAnimator;
     public Animator canvasAnimator;
+    
     private Rigidbody2D rb;
 
     void Start()
@@ -38,10 +39,10 @@ public class PlayerContoller : MonoBehaviour
         health = 10;
     }
 
-    public static void takeDamage(int damage){
+    public void takeDamage(int damage){
         health-=damage;
         Debug.Log("you took damage");
-        
+        canvasAnimator.SetBool("isHit",true);
         if(health <= 0 )
         {
             Debug.Log("you died");
