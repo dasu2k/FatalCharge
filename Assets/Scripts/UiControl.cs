@@ -7,11 +7,9 @@ using Unity.VisualScripting;
 
 public class UiControl : MonoBehaviour
 {
-
-    public TMP_Text text ;
-
+    public Slider health;
     void Update()
     {
-        text.text = "health : " + PlayerContoller.health;
+        health.value = PlayerContoller.health;
     }
 }

@@ -6,14 +6,21 @@ using UnityEngine;
 public class PlayerContoller : MonoBehaviour
 {
     // Start is called before the first frame update
-
+    public GameObject bulletImpact;
     public static PlayerContoller playerContoller ;
     public float sens;
     public float speed;
     public static int health;
 
 
+
+    public AudioSource walking;
+    
+    
+
     public AudioSource gunshot;
+
+
     public static Transform player ;
     public Camera mainCam;
     public Animator camAnimator;
@@ -22,9 +29,7 @@ public class PlayerContoller : MonoBehaviour
 
     void Start()
     {
-
         playerContoller = this;
-        gunshot=GetComponent<AudioSource>();
         Cursor.lockState=CursorLockMode.Locked;
         rb = GetComponent<Rigidbody2D>();
         Time.timeScale = 1f;
@@ -36,6 +41,7 @@ public class PlayerContoller : MonoBehaviour
     public static void takeDamage(int damage){
         health-=damage;
         Debug.Log("you took damage");
+        
         if(health <= 0 )
         {
             Debug.Log("you died");
@@ -58,6 +64,9 @@ public class PlayerContoller : MonoBehaviour
             {
                 transform.Translate(new Vector3(input.x ,0,input.y) * Time.deltaTime * speed);
                 camAnimator.SetBool("isMoving" , true);
+                if(mainCam.transform.position.z > 1.1f)
+                    walking.Play();
+                
             }
             else{
                 camAnimator.SetBool("isMoving",false);
@@ -65,13 +74,8 @@ public class PlayerContoller : MonoBehaviour
 
             //shooting mech
             shoot();
-            
-
         }
     }
-
-
-
 
 
     void shoot()
@@ -87,7 +91,7 @@ public class PlayerContoller : MonoBehaviour
                 {
                     Debug.DrawRay(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
                     Debug.Log("Did Hit");
-
+                    Instantiate(bulletImpact, hit.point, Quaternion.identity);
                     //if target is enemy call its takeDamage() func
                     if(hit.collider.gameObject.tag == "Enemy")
                         hit.collider.gameObject.GetComponent<EnemyController>().takeDamage();
