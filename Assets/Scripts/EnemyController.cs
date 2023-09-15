@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -11,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public Animator animator;
 
+    
     void Start()
     {
         cam = Camera.main;
