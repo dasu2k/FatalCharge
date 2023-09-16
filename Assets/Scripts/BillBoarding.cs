@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BillBoarding : MonoBehaviour
 {
+    
     private GameObject player;
     void Start()
     {

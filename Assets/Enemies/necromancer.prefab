@@ -90,12 +90,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 618364277, guid: 211c10fc737af9540bbb3f2bbe7f8ae4, type: 3}
+  m_Sprite: {fileID: 1222521498, guid: e4261d2f27116de48b558899aedb808c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.51, y: 0.76}
+  m_Size: {x: 0.71, y: 1.02}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -135,7 +135,7 @@ CapsuleCollider:
   m_Radius: 0.16402404
   m_Height: 0.50552785
   m_Direction: 1
-  m_Center: {x: 0.0023731764, y: -0.08052915, z: 0}
+  m_Center: {x: 0.0023731764, y: -0.19, z: 0}
 --- !u!54 &8029108407630262995
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -168,5 +168,4 @@ MonoBehaviour:
   damage: 6
   range: 20
   speed: 4
-  explosion: {fileID: 7016780530011474914, guid: 46a3627a786162f4ab8b66c23b8f169f, type: 3}
   animator: {fileID: 8029108407630262993}
