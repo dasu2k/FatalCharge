@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8029108407630262992}
   - component: {fileID: 8029108407630262999}
-  - component: {fileID: 8029108407630262998}
   - component: {fileID: 8029108407630262993}
+  - component: {fileID: 8029108407630262998}
   - component: {fileID: 8029108407630262994}
   - component: {fileID: 8029108407630262995}
   - component: {fileID: 8029108407630262956}
@@ -49,6 +49,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0082289d520561542bd47a8f56cd4528, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &8029108407630262993
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8029108407630262997}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 38b29480452d5f040aeae40b4441f171, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!212 &8029108407630262998
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -101,27 +122,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &8029108407630262993
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8029108407630262997}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 38b29480452d5f040aeae40b4441f171, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!136 &8029108407630262994
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -147,7 +147,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -169,3 +169,5 @@ MonoBehaviour:
   range: 20
   speed: 4
   animator: {fileID: 8029108407630262993}
+  attackDelay: 0
+  spell: {fileID: 2012324193903204850, guid: 114a52d0afd5b15469dfba85d19dd647, type: 3}

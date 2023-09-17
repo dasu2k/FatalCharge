@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class EnemyController : MonoBehaviour
     public Animator animator;
     public int attackDelay;
 
-
+    public GameObject spell;
 
     
     void Start()
@@ -25,7 +26,7 @@ public class EnemyController : MonoBehaviour
     void LateUpdate()
     {
         //bill boarding
-        transform.LookAt(cam.transform,-Vector3.forward);
+        transform.LookAt(PlayerContoller.player.transform,-Vector3.forward);
     }
 
     void Update(){
@@ -34,14 +35,14 @@ public class EnemyController : MonoBehaviour
             //move the enemy towards the player if the player in range of the target
             float distanceToPlayer = Vector3.Distance(transform.position, PlayerContoller.player.position);
 
-        // Check if the player is in range of the target and not too close
+            // Check if the player is in range of the target and not too close
             if (distanceToPlayer < range && distanceToPlayer > 5f)
             {
                 // Calculate the target position
                 Vector3 targetPosition = PlayerContoller.player.position;
 
                 // Clamp the z-position to keep it within the desired range
-                targetPosition.z = Mathf.Clamp(targetPosition.z, -1.6f, -1.5f);
+                targetPosition.z = Mathf.Clamp(targetPosition.z, -0.3f, 0.25f);
 
                 // Move the enemy towards the clamped target position
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
@@ -65,11 +66,13 @@ public class EnemyController : MonoBehaviour
 
     void necromancerAttack()
     {
-        if(Vector3.Distance(transform.position , PlayerContoller.player.position) < range)
+        if(Vector3.Distance(transform.position , PlayerContoller.player.position) <= range)
         {
             animator.SetBool("isShooting",true);
-            Invoke("shootingComplete",2f);
-        }    
+            Invoke("shootingComplete",1.6f);
+            Debug.Log("shot");
+            Instantiate(spell,transform.position,Quaternion.identity);
+        }
     }
     void OnCollisionEnter(Collision collision)
     {

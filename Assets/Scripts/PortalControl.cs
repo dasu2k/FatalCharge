@@ -13,7 +13,7 @@ public class PortalControl : MonoBehaviour
             if(SceneManager.GetActiveScene().name == "level2")
                 SceneManager.LoadScene("HomeScreen");
             else if(SceneManager.GetActiveScene().name == "level1")
-                SceneManager.LoadScene("level2");
+                SceneManager.LoadScene("HomeScreen");
             Cursor.lockState = CursorLockMode.None;
         }
     }
