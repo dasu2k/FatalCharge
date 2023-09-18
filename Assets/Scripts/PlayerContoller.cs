@@ -65,12 +65,13 @@ public class PlayerContoller : MonoBehaviour
             {
                 transform.Translate(new Vector3(input.x ,0,input.y) * Time.deltaTime * speed);
                 camAnimator.SetBool("isMoving" , true);
-                if(mainCam.transform.position.z > 1.1f)
-                    walking.Play();
+                canvasAnimator.SetBool("isMoving" , true);
                 
             }
             else{
                 camAnimator.SetBool("isMoving",false);
+                canvasAnimator.SetBool("isMoving" , false);
+                
             }
 
             //shooting mech
@@ -89,7 +90,7 @@ public class PlayerContoller : MonoBehaviour
                 gunshot.Play();
                 //turn on shooting animation
                 canvasAnimator.SetBool("isShooting",true);
-                Invoke("shootingComplete",0.4f);
+                Invoke("shootingComplete",0.13f);
 
                 //raycasting to find target and give damage if its an enemy 
                 if (Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out RaycastHit hit))

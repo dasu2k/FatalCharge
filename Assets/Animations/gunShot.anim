@@ -21,13 +21,13 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -1046088793, guid: 2c349e5269856fd4bb72efa5b3207936, type: 3}
-    - time: 0.033333335
+    - time: 0.05
       value: {fileID: 749451727, guid: 2c349e5269856fd4bb72efa5b3207936, type: 3}
-    - time: 0.06666667
-      value: {fileID: -125410918, guid: 2c349e5269856fd4bb72efa5b3207936, type: 3}
     - time: 0.1
+      value: {fileID: -125410918, guid: 2c349e5269856fd4bb72efa5b3207936, type: 3}
+    - time: 0.15
       value: {fileID: -1199646720, guid: 2c349e5269856fd4bb72efa5b3207936, type: 3}
-    - time: 0.13333334
+    - time: 0.2
       value: {fileID: -1046088793, guid: 2c349e5269856fd4bb72efa5b3207936, type: 3}
     attribute: m_Sprite
     path: gun
@@ -58,7 +58,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.15
+    m_StopTime: 0.21666667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
