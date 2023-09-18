@@ -11,4 +11,5 @@ public class MainMenuControl : MonoBehaviour
     public void onPlayClick(){
         SceneManager.LoadScene("level1");
     }
+    
 }

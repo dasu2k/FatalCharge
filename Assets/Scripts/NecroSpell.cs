@@ -21,8 +21,9 @@ public class NecroSpell : MonoBehaviour
         Destroy(gameObject, 2f);
     }
 
-    void OnCollisionEnter(Collision collision){
-        if(collision.gameObject.name == "playerCollider")
+    void OnTriggerEnter(Collider collider){
+        Debug.Log("collider");
+        if(collider.gameObject.name == "playerCollider")
         {
             PlayerContoller.playerContoller.takeDamage(damage);
             Destroy(gameObject);

@@ -20,7 +20,7 @@ public class PlayerContoller : MonoBehaviour
 
     public AudioSource gunshot;
 
-
+    
     public static Transform player ;
     public Camera mainCam;
     public Animator camAnimator;
@@ -78,14 +78,18 @@ public class PlayerContoller : MonoBehaviour
         }
     }
 
-
+    void shootingComplete()
+    {
+        canvasAnimator.SetBool("isShooting",false);
+    }
     void shoot()
     {
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetMouseButtonDown(0) && !canvasAnimator.GetBool("isShooting"))
             {
                 gunshot.Play();
                 //turn on shooting animation
                 canvasAnimator.SetBool("isShooting",true);
+                Invoke("shootingComplete",0.4f);
 
                 //raycasting to find target and give damage if its an enemy 
                 if (Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out RaycastHit hit))
@@ -97,10 +101,6 @@ public class PlayerContoller : MonoBehaviour
                     if(hit.collider.gameObject.tag == "Enemy")
                         hit.collider.gameObject.GetComponent<EnemyController>().takeDamage();
                 }
-            }
-            //if not shooting set the shooting parameter to false
-            else{
-                canvasAnimator.SetBool("isShooting",false);
             }
     }
 }

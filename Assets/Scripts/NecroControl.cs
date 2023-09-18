@@ -18,7 +18,7 @@ public class NecroControl : MonoBehaviour
     void FixedUpdate()
     {
         Vector3 direction = PlayerContoller.player.position - transform.position;
-        rb.velocity = direction.normalized * 61.8f * Time.deltaTime;
+        transform.Translate(direction.normalized * 5f * Time.deltaTime);
         //transform.position = Vector3.MoveTowards(transform.position, PlayerContoller.player.position, speed * Time.deltaTime);
     }
 

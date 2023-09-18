@@ -5,13 +5,8 @@ using UnityEngine;
 public class DestroyAfterDelay : MonoBehaviour
 {
     // Start is called before the first frame update
-
-    
-
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        if(Time.deltaTime == 4)
-            Destroy(gameObject);
+        Destroy(gameObject,2f);
     }
 }

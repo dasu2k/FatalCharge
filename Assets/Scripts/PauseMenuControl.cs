@@ -57,7 +57,10 @@ public class PauseMenuControl : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-
+    public void retry()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     public void goToMainMenu()
     {
         SceneManager.LoadScene("HomeScreen");

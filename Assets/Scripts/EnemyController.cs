@@ -13,7 +13,6 @@ public class EnemyController : MonoBehaviour
     public float speed;
     public Animator animator;
     public int attackDelay;
-
     public GameObject spell;
 
     
@@ -52,7 +51,7 @@ public class EnemyController : MonoBehaviour
     
     public void takeDamage()
     {
-        health--;
+        health-=2;
         animator.SetBool("isHit",true);
         Invoke("takingDamageComplete",0.4f);
         //animator.Play("GettingHit");
