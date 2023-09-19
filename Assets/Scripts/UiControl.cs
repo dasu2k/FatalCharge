@@ -7,9 +7,11 @@ using Unity.VisualScripting;
 
 public class UiControl : MonoBehaviour
 {
-    public Slider health;
+    public Image healthBar;
+    public float healthToFill;
     void Update()
     {
-        health.value = PlayerContoller.health;
+        healthToFill = PlayerContoller.health/10.0f;
+        healthBar.fillAmount =healthToFill;
     }
 }

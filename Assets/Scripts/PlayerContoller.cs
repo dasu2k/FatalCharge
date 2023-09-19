@@ -27,7 +27,9 @@ public class PlayerContoller : MonoBehaviour
     public Animator canvasAnimator;
     
     private Rigidbody2D rb;
-
+    void Awake(){
+        Application.targetFrameRate =60;
+    }
     void Start()
     {
         playerContoller = this;
