@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
 {
     private Camera cam;
     public int health;
-    public int damage;
+    public float damage;
     public float range;
     public float speed;
     public Animator animator;

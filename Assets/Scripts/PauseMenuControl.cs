@@ -46,6 +46,7 @@ public class PauseMenuControl : MonoBehaviour
         isPaused = false;
         pauseMenu.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log("resumed");
     }
 
 

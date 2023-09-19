@@ -10,7 +10,7 @@ public class PlayerContoller : MonoBehaviour
     public static PlayerContoller playerContoller ;
     public float sens;
     public float speed;
-    public static int health;
+    public static float health;
 
 
 
@@ -41,7 +41,7 @@ public class PlayerContoller : MonoBehaviour
         health = 10;
     }
 
-    public void takeDamage(int damage){
+    public void takeDamage(float damage){
         health-=damage;
         Debug.Log("you took damage");
         canvasAnimator.SetBool("isHit",true);
