@@ -22,7 +22,7 @@ public class NecroSpell : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collider){
-        Debug.Log("collider");
+        Debug.Log(collider.gameObject.name);
         if(collider.gameObject.name == "playerCollider")
         {
             PlayerContoller.playerContoller.takeDamage(damage);

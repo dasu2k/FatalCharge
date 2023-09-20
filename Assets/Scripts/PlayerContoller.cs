@@ -15,11 +15,7 @@ public class PlayerContoller : MonoBehaviour
 
 
     public AudioSource walking;
-    
-    
-
     public AudioSource gunshot;
-
     
     public static Transform player ;
     public Camera mainCam;
@@ -51,7 +47,16 @@ public class PlayerContoller : MonoBehaviour
         }
     }
 
-
+    public void heal(float healing)
+    {
+        if(health < 10)
+        {
+            if(health+healing > 10)
+                health =10f;
+            else
+                health += healing;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
