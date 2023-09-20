@@ -9,7 +9,7 @@ public class MainMenuControl : MonoBehaviour
         Time.timeScale = 1f;
     }
     public void onPlayClick(){
-        SceneManager.LoadScene("level1");
+        SceneManager.LoadScene("levelSelector");
     }
     public void onExitClick(){
         Application.Quit();
