@@ -106,8 +106,11 @@ public class PlayerContoller : MonoBehaviour
                     Debug.Log("Did Hit");
                     Instantiate(bulletImpact, hit.point, Quaternion.identity);
                     //if target is enemy call its takeDamage() func
-                    if(hit.collider.gameObject.tag == "Enemy")
-                        hit.collider.gameObject.GetComponent<EnemyController>().takeDamage();
+                    if(hit.collider.gameObject.tag == "Enemy"){
+                        hit.collider.gameObject.GetComponentInParent<NecroControl>().takeDamage();
+                        Debug.Log("hit an enemy");
+                    }
+                        
                 }
             }
     }

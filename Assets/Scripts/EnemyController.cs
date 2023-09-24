@@ -12,14 +12,15 @@ public class EnemyController : MonoBehaviour
     public float range;
     public float speed;
     public Animator animator;
-    public int attackDelay;
+    
     public GameObject spell;
 
     
     void Start()
     {
         cam = Camera.main;
-        InvokeRepeating("necromancerAttack",4f,3.5f);
+        
+        InvokeRepeating("necromancerAttack",4f,3f);
     }
 
     void LateUpdate()
@@ -46,6 +47,7 @@ public class EnemyController : MonoBehaviour
                 // Move the enemy towards the clamped target position
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
             }
+            
         }
     }
     
