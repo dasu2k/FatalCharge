@@ -13,7 +13,7 @@ public class NecroControl : MonoBehaviour
     void Start()
     {
         sprite = GetComponentInChildren<Transform>();
-        InvokeRepeating("necromancerAttack",3f,2f);
+        InvokeRepeating("necromancerAttack",0f,2f);
     }
 
     // Update is called once per frame

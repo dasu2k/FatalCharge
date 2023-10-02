@@ -36,7 +36,7 @@ public class DoorControl : MonoBehaviour
             }
             if(isOpening)
             {
-                transform.position = Vector3.MoveTowards(transform.position ,new Vector3(transform.position.x,transform.position.y,0.93f) , 0.1f);
+                transform.position = Vector3.MoveTowards(transform.position ,new Vector3(transform.position.x,transform.position.y,0.93f) , 2f * Time.deltaTime);
                 coll.enabled = false;
             }
         }
