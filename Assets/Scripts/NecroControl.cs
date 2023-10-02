@@ -9,11 +9,11 @@ public class NecroControl : MonoBehaviour
     public Animator necroAnimator;
     public GameObject spell;
     public float health;
-    
+    public Transform sprite;
     void Start()
     {
-        
-        InvokeRepeating("necromancerAttack",3f,3.5f);
+        sprite = GetComponentInChildren<Transform>();
+        InvokeRepeating("necromancerAttack",3f,2f);
     }
 
     // Update is called once per frame
@@ -21,16 +21,26 @@ public class NecroControl : MonoBehaviour
     {
         Vector3 targetPosition = PlayerContoller.player.position;
         targetPosition.z = Mathf.Clamp(targetPosition.z, -2f , -1.56f);
+        
+        Vector3 playerDirection = PlayerContoller.player.transform.position - transform.position;
+        
         float distanceToPlayer = Vector3.Distance(transform.position, PlayerContoller.player.position);
-        if(distanceToPlayer > 4f && distanceToPlayer < 20f){
-            transform.position = Vector3.MoveTowards(transform.position , targetPosition , speed * Time.deltaTime);
+        
+        //raycast towards the player
+        if(Physics.Raycast(transform.position, playerDirection , out RaycastHit hit)){
+            Debug.Log(hit.collider.gameObject.tag);
+            
+            Debug.DrawRay(transform.position, playerDirection  * hit.distance, Color.yellow);
+            if(hit.collider.gameObject.tag == "playerCollider")
+            {
+                transform.position = Vector3.MoveTowards(transform.position , targetPosition , speed * Time.deltaTime);
+            }
         }
         
     }
 
     void necromancerAttack(){
         float distanceToPlayer = Vector3.Distance(transform.position, PlayerContoller.player.position);
-        Debug.Log("attack invoked");
         if(distanceToPlayer < 10f && !necroAnimator.GetBool("isShooting"))
         {
             necroAnimator.SetBool("isShooting", true);
@@ -53,7 +63,6 @@ public class NecroControl : MonoBehaviour
         if(health <= 0 )
         {
             //animator.Play("Dying");
-            Debug.Log("he ded");
             Destroy(gameObject);
         }
     }

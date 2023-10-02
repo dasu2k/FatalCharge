@@ -12,6 +12,7 @@ public class PlayerContoller : MonoBehaviour
     public float speed;
     public static float health;
 
+    public bool hasKey;
 
 
     public AudioSource walking;
@@ -39,7 +40,6 @@ public class PlayerContoller : MonoBehaviour
 
     public void takeDamage(float damage){
         health-=damage;
-        Debug.Log("you took damage");
         canvasAnimator.SetBool("isHit",true);
         if(health <= 0 )
         {
@@ -78,7 +78,6 @@ public class PlayerContoller : MonoBehaviour
             else{
                 camAnimator.SetBool("isMoving",false);
                 canvasAnimator.SetBool("isMoving" , false);
-                
             }
 
             //shooting mech
@@ -103,12 +102,11 @@ public class PlayerContoller : MonoBehaviour
                 if (Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out RaycastHit hit))
                 {
                     Debug.DrawRay(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                    Debug.Log("Did Hit");
+                    
                     Instantiate(bulletImpact, hit.point, Quaternion.identity);
                     //if target is enemy call its takeDamage() func
                     if(hit.collider.gameObject.tag == "Enemy"){
                         hit.collider.gameObject.GetComponentInParent<NecroControl>().takeDamage();
-                        Debug.Log("hit an enemy");
                     }
                         
                 }
