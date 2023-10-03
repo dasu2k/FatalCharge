@@ -14,8 +14,7 @@ public class GreenMonkControl : MonoBehaviour
     
     void LateUpdate()
     {
-        //bill boarding
-        //transform.LookAt(PlayerContoller.player.transform,-Vector3.forward);
+        
     }
     void Start()
     {
@@ -51,4 +50,16 @@ public class GreenMonkControl : MonoBehaviour
             
         }
     }
+    public void takeDamage()
+    {
+        health-=2;
+        
+        Debug.Log("isHit");
+        if(health <= 0 )
+        {
+            //animator.Play("Dying");
+            Destroy(gameObject);
+        }
+    }
+
 }

@@ -10,10 +10,10 @@ public class PortalControl : MonoBehaviour
         
         if(collision.gameObject.name == "playerCollider")
         {
-            if(SceneManager.GetActiveScene().name == "level2")
+            //if(SceneManager.GetActiveScene().name == "level2")
                 SceneManager.LoadScene("levelSelector");
-            else if(SceneManager.GetActiveScene().name == "level1")
-                SceneManager.LoadScene("levelSelector");
+            //else if(SceneManager.GetActiveScene().name == "level1")
+                //SceneManager.LoadScene("levelSelector");
             Cursor.lockState = CursorLockMode.None;
         }
     }

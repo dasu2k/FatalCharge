@@ -108,7 +108,10 @@ public class PlayerContoller : MonoBehaviour
                     if(hit.collider.gameObject.tag == "Enemy"){
                         hit.collider.gameObject.GetComponentInParent<NecroControl>().takeDamage();
                     }
-                        
+                    else if(hit.collider.gameObject.tag == "GreenMonk")
+                    {
+                        hit.collider.gameObject.GetComponentInParent<GreenMonkControl>().takeDamage();
+                    }   
                 }
             }
     }

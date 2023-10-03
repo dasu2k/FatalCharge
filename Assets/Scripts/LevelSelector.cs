@@ -22,4 +22,7 @@ public class LevelSelector : MonoBehaviour
     public void level2(){
         SceneManager.LoadScene("level2");
     }
+    public void level3(){
+        SceneManager.LoadScene("level3");
+    }
 }

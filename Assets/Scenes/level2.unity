@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b38f0b45589ca2469efc1e1dc16da37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 6
   damage: 2
   range: 10
   speed: 3
@@ -40674,7 +40674,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8658165473623308885, guid: 9fa8d345266913b499e1a19b74ba6fcb, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8658165473623308885, guid: 9fa8d345266913b499e1a19b74ba6fcb, type: 3}
+      propertyPath: m_TagString
+      value: GreenMonk
       objectReference: {fileID: 0}
     - target: {fileID: 8658165473623308886, guid: 9fa8d345266913b499e1a19b74ba6fcb, type: 3}
       propertyPath: m_RootOrder
@@ -40694,7 +40698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8658165473623308886, guid: 9fa8d345266913b499e1a19b74ba6fcb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -74.1
+      value: -56.19
       objectReference: {fileID: 0}
     - target: {fileID: 8658165473623308886, guid: 9fa8d345266913b499e1a19b74ba6fcb, type: 3}
       propertyPath: m_LocalPosition.y
