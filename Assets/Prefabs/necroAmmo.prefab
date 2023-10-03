@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpellSpeed: 6
-  damage: 2
+  damage: 1
 --- !u!54 &3610692008555496284
 Rigidbody:
   m_ObjectHideFlags: 0
