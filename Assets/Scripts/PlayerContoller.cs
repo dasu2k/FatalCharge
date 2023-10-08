@@ -14,6 +14,7 @@ public class PlayerContoller : MonoBehaviour
 
     public bool hasKey;
 
+    public bool isShooting;
 
     public AudioSource walking;
     public AudioSource gunshot;
@@ -62,6 +63,7 @@ public class PlayerContoller : MonoBehaviour
     {
         if(!PauseMenuControl.isPaused)
         {
+            Debug.Log(camAnimator.GetBool("isMoving"));
             Vector2 input = new Vector2(Input.GetAxis("Horizontal") , Input.GetAxis("Vertical"));
             //mouse input and camera rotation
             mainCam.transform.Rotate(-sens*(Input.GetAxis("Mouse Y")) , 0 , 0 , Space.Self);
@@ -88,15 +90,19 @@ public class PlayerContoller : MonoBehaviour
     void shootingComplete()
     {
         canvasAnimator.SetBool("isShooting",false);
+        isShooting=false;
+        Debug.Log("not shooting anymore");
     }
+
     void shoot()
     {
-        if(Input.GetMouseButtonDown(0) && !canvasAnimator.GetBool("isShooting"))
+        if(Input.GetMouseButtonDown(0) && !isShooting)
             {
-                gunshot.Play();
                 //turn on shooting animation
                 canvasAnimator.SetBool("isShooting",true);
-                Invoke("shootingComplete",0.13f);
+                isShooting=true;
+                Debug.Log("is shooting right now.");
+                Invoke("shootingComplete",0.16f);
 
                 //raycasting to find target and give damage if its an enemy 
                 if (Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out RaycastHit hit))
