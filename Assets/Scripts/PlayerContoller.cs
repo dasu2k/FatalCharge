@@ -26,7 +26,6 @@ public class PlayerContoller : MonoBehaviour
     
     private Rigidbody2D rb;
     void Awake(){
-        Application.targetFrameRate =60;
     }
     void Start()
     {
@@ -63,7 +62,6 @@ public class PlayerContoller : MonoBehaviour
     {
         if(!PauseMenuControl.isPaused)
         {
-            Debug.Log(camAnimator.GetBool("isMoving"));
             Vector2 input = new Vector2(Input.GetAxis("Horizontal") , Input.GetAxis("Vertical"));
             //mouse input and camera rotation
             mainCam.transform.Rotate(-sens*(Input.GetAxis("Mouse Y")) , 0 , 0 , Space.Self);
@@ -75,7 +73,6 @@ public class PlayerContoller : MonoBehaviour
                 transform.Translate(new Vector3(input.x ,0,input.y) * Time.deltaTime * speed);
                 camAnimator.SetBool("isMoving" , true);
                 canvasAnimator.SetBool("isMoving" , true);
-                
             }
             else{
                 camAnimator.SetBool("isMoving",false);
@@ -91,35 +88,33 @@ public class PlayerContoller : MonoBehaviour
     {
         canvasAnimator.SetBool("isShooting",false);
         isShooting=false;
-        Debug.Log("not shooting anymore");
+        
     }
 
     void shoot()
     {
-        if(Input.GetMouseButtonDown(0) && !isShooting)
+        if(Input.GetMouseButtonDown(0) && isShooting==false)
+        {
+            //turn on shooting animation
+            canvasAnimator.SetBool("isShooting",true);
+            isShooting=true;
+            Debug.Log("shot!");
+            Invoke("shootingComplete",0.23f);
+            //raycasting to find target and give damage if its an enemy 
+            if (Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out RaycastHit hit))
             {
-                //turn on shooting animation
-                canvasAnimator.SetBool("isShooting",true);
-                isShooting=true;
-                Debug.Log("is shooting right now.");
-                Invoke("shootingComplete",0.16f);
-
-                //raycasting to find target and give damage if its an enemy 
-                if (Physics.Raycast(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward), out RaycastHit hit))
-                {
-                    Debug.DrawRay(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                    
-                    Instantiate(bulletImpact, hit.point, Quaternion.identity);
-                    //if target is enemy call its takeDamage() func
-                    if(hit.collider.gameObject.tag == "Enemy"){
-                        hit.collider.gameObject.GetComponentInParent<NecroControl>().takeDamage();
-                    }
-                    else if(hit.collider.gameObject.tag == "GreenMonk")
-                    {
-                        hit.collider.gameObject.GetComponentInParent<GreenMonkControl>().takeDamage();
-                    }   
+                Debug.DrawRay(mainCam.transform.position, mainCam.transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);    
+                Instantiate(bulletImpact, hit.point, Quaternion.identity);
+                //if target is enemy call its takeDamage() func
+                if(hit.collider.gameObject.tag == "Enemy"){
+                    hit.collider.gameObject.GetComponentInParent<NecroControl>().takeDamage();
                 }
+                else if(hit.collider.gameObject.tag == "GreenMonk")
+                {
+                    hit.collider.gameObject.GetComponentInParent<GreenMonkControl>().takeDamage();
+                }   
             }
+        }
     }
 }
     
